@@ -26,6 +26,33 @@ body {
     overflow-x: hidden;
 }
 
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+    background: radial-gradient(
+        800px circle at var(--mouse-x, -1000px) var(--mouse-y, -1000px), 
+        rgba(34, 211, 238, 0.06) 0%,
+        rgba(168, 85, 247, 0.03) 50%,
+        transparent 100%
+    );
+}
+
+.service-card, .project-card {
+    position: relative;
+    background-image: radial-gradient(
+        250px circle at var(--card-mouse-x, -1000px) var(--card-mouse-y, -1000px),
+        rgba(34, 211, 238, 0.15),
+        transparent 100%
+    );
+    background-repeat: no-repeat;
+}
+
 a {
     text-decoration: none;
     color: inherit;
@@ -172,6 +199,19 @@ a {
     background-color: transparent;
     color: #25d366;
     box-shadow: 0 0 25px rgba(37, 211, 102, 0.5);
+}
+
+.btn-discord {
+    background-color: #5865f2;
+    color: white;
+    border: 2px solid #5865f2;
+    box-shadow: 0 0 10px rgba(88, 101, 242, 0.3);
+}
+
+.btn-discord:hover {
+    background-color: transparent;
+    color: #5865f2;
+    box-shadow: 0 0 25px rgba(88, 101, 242, 0.5);
 }
 
 .btn-primary::after, .btn-secondary::after, .btn-whatsapp::after {
@@ -369,4 +409,92 @@ footer::after {
     color: var(--accent-purple);
     box-shadow: 0 0 15px var(--shadow-purple);
     transform: scale(1.05);
+}
+
+.projects-section {
+    padding: 100px 8%;
+    background-color: var(--bg-card);
+    text-align: center;
+    border-top: 1px solid rgba(34, 211, 238, 0.4);
+    border-bottom: 1px solid rgba(34, 211, 238, 0.4);
+}
+
+.projects-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+    text-shadow: 0 0 10px var(--shadow-cyan);
+}
+
+.projects-subtitle {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin-bottom: 60px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background-color: var(--bg-dark);
+    padding: 35px;
+    border-radius: 4px;
+    border: 1px solid #1e293b;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform var(--transition-slow), border-color var(--transition-slow), box-shadow var(--transition-slow);
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent-purple);
+    box-shadow: 0 10px 30px var(--shadow-purple);
+}
+
+.project-tag {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent-cyan);
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.project-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: var(--text-primary);
+}
+
+.project-card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.btn-project {
+    align-self: flex-start;
+    padding: 8px 18px;
+    border: 1px solid var(--accent-cyan);
+    color: var(--accent-cyan);
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    transition: var(--transition-fast);
+}
+
+.project-card:hover .btn-project {
+    background-color: var(--accent-cyan);
+    color: var(--bg-dark);
+    box-shadow: 0 0 15px var(--accent-cyan);
 }

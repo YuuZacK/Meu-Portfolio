@@ -37,3 +37,20 @@ function deletingEffect() {
 }
 
 typingEffect();
+
+document.addEventListener('mousemove', (e) => {
+    const x = e.clientX;
+    const y = e.clientY;
+    document.documentElement.style.setProperty('--mouse-x', `${x}px`);
+    document.documentElement.style.setProperty('--mouse-y', `${y}px`);
+
+    const cards = document.querySelectorAll('.service-card, .project-card');
+    cards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        const cardX = e.clientX - rect.left;
+        const cardY = e.clientY - rect.top;
+        
+        card.style.setProperty('--card-mouse-x', `${cardX}px`);
+        card.style.setProperty('--card-mouse-y', `${cardY}px`);
+    });
+});
