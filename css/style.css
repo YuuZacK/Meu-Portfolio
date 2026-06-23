@@ -565,3 +565,16 @@ footer::after {
         text-align: center;
     }
 }
+
+.btn-instagram {
+    background-color: #E1306C;
+    color: white;
+    border: 2px solid #E1306C;
+    box-shadow: 0 0 10px rgba(225, 48, 108, 0.3);
+}
+
+.btn-instagram:hover {
+    background-color: transparent;
+    color: #E1306C;
+    box-shadow: 0 0 25px rgba(225, 48, 108, 0.5);
+}
